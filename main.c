@@ -10,8 +10,9 @@ void main(void)
 	WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;		// stop watchdog timer
 
 #ifdef INTERNAL_TEMPERATURE_READ
-	ADC_CONFIG();
 #endif
+    ADC_CONFIG();
+
 
 	__enable_interrupt();
 

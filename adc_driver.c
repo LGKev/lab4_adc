@@ -21,6 +21,28 @@ void ADC_CONFIG(){
     P4SEL0 = BIT0 | BIT2;  //A13 and A11
     P4SEL1 = BIT0 | BIT2;  //A13 and A11
 
+#ifdef ADC_PORT5_PIN4
+    P5SEL0 = BIT4 ;  //A1
+    P5SEL1 = BIT4;  //A1
+    P5->DIR &= ~BIT4; //INPUT
+    //pull it down.
+    P5->REN |= BIT4;
+    P5->OUT |= BIT4;
+
+
+    while(REF_A->CTL0 & REF_A_CTL0_GENBUSY);
+    REF_A->CTL0 |= REF_A_CTL0_VSEL_3 | REF_A_CTL0_ON;
+
+    ADC14->CTL0 |= ADC14_CTL0_SHT0_5 | ADC14_CTL0_ON | ADC14_CTL0_SHP;
+    ADC14->CTL1 |= ADC14_CTL1_RES_3; //16 BIT GLORY
+
+    ADC14->MCTL[1] |= ADC14_MCTLN_INCH_1; //MAP MEMORY TO CHANNEL a1
+
+    ADC14->IER0 |= ADC14_IER0_IE1; //INTERRUPT ON MEMORY MAP 1
+
+
+#endif
+
 #ifdef INTERNAL_TEMPERATURE_READ
     //Pins for temperature sensor Analog 22, port 8 pin 3.
     //P8SEL0 = BIT3;
@@ -37,7 +59,6 @@ void ADC_CONFIG(){
     ADC14->MCTL[0] |= ADC14_MCTLN_INCH_22 ; //MAP the temp to the first block of memory temperature sensor analog pin, table 6-52 from overview 100 pin PZ devices
 
     // need to enable interrupt for conversion of data.
-    ADC14->IER0 |= ADC14_IER0_IE22; // allow interrupt for analog pin 22, or is this directly tied to the interrupt for mem0
     ADC14->IER0 |= ADC14_IER0_IE0; //interrupt for mem[0]
 
 
@@ -45,6 +66,7 @@ void ADC_CONFIG(){
 
     NVIC_EnableIRQ(ADC14_IRQn); //a flag ADC14IFGx is set when x has a conversion result.
 #endif
+
 
 
 
@@ -73,6 +95,9 @@ void ADC14_IRQHandler(){
        //how to convert? reference is 1.2 v? max is 3.3v? or max 1.2 v? and ground is min?
         //my temp is now at 3719 converted.
         //it looks like maybe the referecnec voltage represents the top value. not the bottom. from 0 to 1.2v is the reference range.
+    }
+    if(ADC14->IFGR0 & ADC14_IFGR0_IFG1){
+        uint8_t test = 53;
     }
 }
 
