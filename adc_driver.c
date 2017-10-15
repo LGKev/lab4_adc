@@ -26,8 +26,8 @@ void ADC_CONFIG(){
     P5SEL1 = BIT4;  //A1
     P5->DIR &= ~BIT4; //INPUT
     //pull it down.
-    P5->REN |= BIT4;
-    P5->OUT |= BIT4;
+  //  P5->REN |= BIT4;
+  //  P5->OUT |= BIT4;
 
 
     while(REF_A->CTL0 & REF_A_CTL0_GENBUSY);
@@ -40,6 +40,7 @@ void ADC_CONFIG(){
 
     ADC14->IER0 |= ADC14_IER0_IE1; //INTERRUPT ON MEMORY MAP 1
 
+    NVIC_EnableIRQ(ADC14_IRQn); //a flag ADC14IFGx is set when x has a conversion result.
 
 #endif
 
