@@ -23,8 +23,8 @@ void ADC_CONFIG(){
 
 #ifdef INTERNAL_TEMPERATURE_READ
     //Pins for temperature sensor Analog 22, port 8 pin 3.
-    P8SEL0 = BIT3;
-    P8SEL1 = BIT3;
+    //P8SEL0 = BIT3;
+    //P8SEL1 = BIT3;
     //Do I need to make port direction input? what about pull up resistor?
 
     while(REF_A->CTL0 & REF_A_CTL0_GENBUSY);
