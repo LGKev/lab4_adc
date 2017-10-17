@@ -20,3 +20,4 @@ void main(void)
 	    ADC14->CTL0 |= ADC14_CTL0_SC | ADC14_CTL0_ENC; //start sample, enable conversion?
 	}
 }
+

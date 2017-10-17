@@ -32,6 +32,8 @@ void ADC_CONFIG(){
 
     while(REF_A->CTL0 & REF_A_CTL0_GENBUSY);
     REF_A->CTL0 |= REF_A_CTL0_VSEL_3 | REF_A_CTL0_ON;
+    REF_A->CTL0 |=REF_A_CTL0_TCOFF;
+
 
     ADC14->CTL0 |= ADC14_CTL0_SHT0_5 | ADC14_CTL0_ON | ADC14_CTL0_SHP;
     ADC14->CTL1 |= ADC14_CTL1_RES_3; //16 BIT GLORY
@@ -39,6 +41,11 @@ void ADC_CONFIG(){
     ADC14->MCTL[1] |= ADC14_MCTLN_INCH_1; //MAP MEMORY TO CHANNEL a1
 
     ADC14->IER0 |= ADC14_IER0_IE1; //INTERRUPT ON MEMORY MAP 1
+
+    while(!(REF_A->CTL0 & REF_A_CTL0_GENRDY));
+    ADC14->CTL0 |= ADC14_CTL0_ENC;
+
+
 
     NVIC_EnableIRQ(ADC14_IRQn); //a flag ADC14IFGx is set when x has a conversion result.
 
@@ -68,10 +75,37 @@ void ADC_CONFIG(){
     NVIC_EnableIRQ(ADC14_IRQn); //a flag ADC14IFGx is set when x has a conversion result.
 #endif
 
+#ifdef TEST_ADC_CHANNEL_2
+while(REF_A->CTL0 & REF_A_CTL0_GENBUSY);
 
+    //pin setup port 4 pin 4, analog pin 9
+        P4->SEL0 = BIT4;
+        P4->SEL1 = BIT4;
+        P4->DIR &=~BIT4;
+
+       REF_A->CTL0 |= REF_A_CTL0_VSEL_0 | REF_A_CTL0_ON;
+       REF_A->CTL0 |= REF_A_CTL0_TCOFF; //set it to a 1 to save power (turn off temp)
+
+       ADC14->CTL0 |= ADC14_CTL0_SHT0_5 | ADC14_CTL0_ON | ADC14_CTL0_SHP; //96 clocks, turn on, and sample and hold mode
+       ADC14->CTL1 |= ADC14_CTL1_RES_3; // set resolution: 16 clock cycles
+
+       ADC14->MCTL[5] |= ADC14_MCTLN_INCH_9; //MAP the temp to the first block of memory temperature sensor analog pin, table 6-52 from overview 100 pin PZ devices
+
+       // need to enable interrupt for conversion of data.
+       ADC14->IER0 |= ADC14_IER0_IE5; //interrupt for mem[0]
+       while(!(REF_A->CTL0 & REF_A_CTL0_GENRDY));
+          ADC14->CTL0 |= ADC14_CTL0_ENC;
+
+#endif
+
+       //map the accelerometer x, y , and z for the mem1 mem2 and mem3
+
+       NVIC_EnableIRQ(ADC14_IRQn); //a flag ADC14IFGx is set when x has a conversion result.
 
 
 }
+
+
 
 
 void ADC14_IRQHandler(){
@@ -100,6 +134,10 @@ void ADC14_IRQHandler(){
     if(ADC14->IFGR0 & ADC14_IFGR0_IFG1){
         uint8_t test = 53;
     }
+    if(ADC14->IFGR0 & ADC14_IFGR0_IFG5){
+        uint8_t test5= 35;
+    }
+
 }
 
 
