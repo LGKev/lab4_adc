@@ -12,6 +12,7 @@ main.obj: C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/CMSIS/cmsis_compil
 main.obj: C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/system_msp432p401r.h
 main.obj: ../adc_driver.h
 main.obj: ../lab4.h
+main.obj: C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/CMSIS/core_cm4.h
 
 ../main.c: 
 C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/msp.h: 
@@ -25,3 +26,4 @@ C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/CMSIS/cmsis_compiler.h:
 C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/system_msp432p401r.h: 
 ../adc_driver.h: 
 ../lab4.h: 
+C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/CMSIS/core_cm4.h: 
