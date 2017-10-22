@@ -1,6 +1,7 @@
 #include "msp.h"
 #include "adc_driver.h"
 #include "lab4.h"
+#include "time.h"
 
 /**
  * main.c
@@ -9,9 +10,7 @@ void main(void)
 {
 	WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;		// stop watchdog timer
 
-#ifdef INTERNAL_TEMPERATURE_READ
 	ADC_CONFIG();
-#endif
 
 	__enable_interrupt();
 	while(1){
