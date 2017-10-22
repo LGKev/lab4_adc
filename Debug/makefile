@@ -2,7 +2,9 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-CG_TOOL_ROOT := /home/kk/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS
+SHELL = cmd.exe
+
+CG_TOOL_ROOT := C:/Users/kwat1/Documents/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS
 
 GEN_OPTS__FLAG := 
 GEN_CMDS__FLAG := 
@@ -19,8 +21,8 @@ $(GEN_CMDS__FLAG) \
 
 -include ../makefile.init
 
-RM := rm -rf
-RMDIR := rm -rf
+RM := DEL /F
+RMDIR := RMDIR /S/Q
 
 # All of the sources participating in the build are defined here
 -include sources.mk
@@ -142,13 +144,13 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 adc_lab4.out: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MSP432 Linker'
-	"/home/kk/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --advice:power=all --define=__MSP432P401R__ --define=ccs -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"adc_lab4.map" --heap_size=1024 --stack_size=512 -i"/home/kk/ti/ccsv7/ccs_base/arm/include" -i"/home/kk/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/lib" -i"/home/kk/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="adc_lab4_linkInfo.xml" --rom_model -o "adc_lab4.out" $(ORDERED_OBJS)
+	"C:/Users/kwat1/Documents/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --advice:power=all --define=__MSP432P401R__ --define=ccs -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"adc_lab4.map" --heap_size=1024 --stack_size=512 -i"C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include" -i"C:/Users/kwat1/Documents/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/lib" -i"C:/Users/kwat1/Documents/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="adc_lab4_linkInfo.xml" --rom_model -o "adc_lab4.out" $(ORDERED_OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 adc_lab4.hex: $(EXE_OUTPUTS)
 	@echo 'Invoking: MSP432 Hex Utility'
-	"/home/kk/ti/ccsv7/tools/compiler/ti-cgt-arm_16.9.3.LTS/bin/armhex" --memwidth=8 --romwidth=8 -o "adc_lab4.hex" $(EXE_OUTPUTS__QUOTED)
+	"C:/Users/kwat1/Documents/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/bin/armhex" --memwidth=8 --romwidth=8 -o "adc_lab4.hex" $(EXE_OUTPUTS__QUOTED)
 	@echo 'Finished building: $@'
 	@echo ' '
 
