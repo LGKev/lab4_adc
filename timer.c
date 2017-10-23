@@ -8,13 +8,15 @@
 #include "timer.h"
 #include "msp.h"
 
+extern uint8_t FLAG_Collect_Data;
+
 void timer_a0_config()
 {
     __disable_irq();
     TIMER_A0->R = 0;         // Reset count, set to 0 at begining
     TIMER_A0->CTL = TIMER_A_CTL_TASSEL_2|TIMER_A_CTL_ID__8| TIMER_A_CTL_MC__UP;//UP MODE, SOURCE SEL SMCLK, INTERRUPT ENABLE
 
-    //:TODO need to change CCR[0] value
+
 
     TIMER_A0->CCR[0] = 31250;// Value to count to, from lab questions 4727;
     TIMER_A0->CCTL[0] &= ~CCIFG;//clear compare captture flag
@@ -31,6 +33,7 @@ void TA0_0_IRQHandler() //basically used only to cycle led colors
        if (TIMER_A0->CCTL[0] & CCIFG)
        { //ABSOLUTELY necessary will not work otherwise.
            P2->OUT ^= BIT2;
+           FLAG_Collect_Data = 1;
        }
        TIMER_A0->CTL &= ~TIMER_A_CTL_IFG; //moved here b/c i think it was clearing flags too early. only clear 1 flag a time.
        TIMER_A0->CCTL[0] &= ~CCIFG;

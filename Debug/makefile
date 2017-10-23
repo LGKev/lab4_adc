@@ -11,11 +11,13 @@ GEN_CMDS__FLAG :=
 
 ORDERED_OBJS += \
 "./adc_driver.obj" \
+"./circ_buffer_basic.obj" \
 "./lab4.obj" \
 "./main.obj" \
 "./startup_msp432p401r_ccs.obj" \
 "./system_msp432p401r.obj" \
 "./timer.obj" \
+"./uart.obj" \
 "../msp432p401r.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibc.a \
@@ -158,8 +160,8 @@ adc_lab4.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "adc_driver.obj" "lab4.obj" "main.obj" "startup_msp432p401r_ccs.obj" "system_msp432p401r.obj" "timer.obj" 
-	-$(RM) "adc_driver.d" "lab4.d" "main.d" "startup_msp432p401r_ccs.d" "system_msp432p401r.d" "timer.d" 
+	-$(RM) "adc_driver.obj" "circ_buffer_basic.obj" "lab4.obj" "main.obj" "startup_msp432p401r_ccs.obj" "system_msp432p401r.obj" "timer.obj" "uart.obj" 
+	-$(RM) "adc_driver.d" "circ_buffer_basic.d" "lab4.d" "main.d" "startup_msp432p401r_ccs.d" "system_msp432p401r.d" "timer.d" "uart.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 

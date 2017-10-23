@@ -3,9 +3,18 @@
 #include "lab4.h"
 #include "timer.h"
 
-/**
+/*
  * main.c
  */
+
+/*==================================================*/
+/*     Globals                                      */
+
+   volatile uint8_t FLAG_Collect_Data = 0; //collect data from the mem[0] when set to 1
+
+
+/*==================================================*/
+
 void main(void)
 {
 	WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;		// stop watchdog timer
@@ -20,6 +29,13 @@ void main(void)
 	__enable_interrupt();
 	while(1){
 	    ADC14->CTL0 |= ADC14_CTL0_SC | ADC14_CTL0_ENC; //start sample, enable conversion?
+
+	    if(FLAG_Collect_Data == 1){
+	        //add to buffer but for now just put into variable
+	        uint16_t data = ADC14->MEM[0]; //get data stored in memory 0.
+	        //:Todo add to buffe
+	        FLAG_Collect_Data = 0;
+	    }
 	}
 }
 
