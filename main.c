@@ -27,7 +27,8 @@ void main(void)
 	WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;		// stop watchdog timer
 	timer_a0_config();
 	//ADC_CONFIG(); //generic ADC, for channel 0.
-	ADC_CONFIG_Accelerometer();
+	//ADC_CONFIG_Accelerometer();
+	ADC_CONFIG_Joystick();
 	UART_config();
 	configure_clocks();
 
