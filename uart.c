@@ -75,21 +75,6 @@ void UART_config(){
 
 
 /*
- *  Sends a single byte of data to the TX Buffer.
- *  Blocking, waits until the UCTXIFG flag is cleared.
- * */
-void UART_send_n(uint8_t * data, uint32_t length);
-
-
-/*
- *  Sends data from an array, until entire array sent.
- *  Blocking, waits until the UCTXIFG flag is cleared.
- *
- * */
-void UART_send_byte(uint8_t data);
-
-
-/*
  * Place Load data into Tx Buffer
  * */
 void UART_putchar(uint8_t tx_data){
@@ -101,7 +86,7 @@ void UART_putchar(uint8_t tx_data){
 /*
  *  Iterates through the array, puts into the Tx Buffer
  * */
-void uart_putchar_n(uint8_t * data, uint32_t length){
+void UART_putchar_n(uint8_t * data, uint32_t length){
     //data is an array! so you can use pointer math to iterate through
    uint8_t index =0;
 
