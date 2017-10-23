@@ -16,19 +16,28 @@
    volatile uint8_t Calculate_Stats = 0; // calculate stats on datas :Todo remove this variable
    CircBuf_t myBuffer;
    CircBuf_t * myBufferPTR = &myBuffer;
+
+   //:Accelerometer
    volatile uint16_t X_ADC = 0;
    volatile uint16_t Y_ADC = 0;
    volatile uint16_t Z_ADC = 0;
 
+   //:Joystick
+
+   //Temperature
+   volatile uint16_t NADC_Temperature = 53;
 /*==================================================*/
 
 void main(void)
 {
+
+    initialize_Circ_Buffer(&myBufferPTR, 60);
+
 	WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;		// stop watchdog timer
 	timer_a0_config();
-	//ADC_CONFIG(); //generic ADC, for channel 0.
+	ADC_CONFIG(); //generic ADC, for channel 0.
 	//ADC_CONFIG_Accelerometer();
-	ADC_CONFIG_Joystick();
+	//ADC_CONFIG_Joystick();
 	UART_config();
 	configure_clocks();
 
@@ -46,9 +55,9 @@ void main(void)
 
 	    if(FLAG_Collect_Data == 1){
 	        //add to buffer but for now just put into variable
-	        uint16_t data = ADC14->MEM[0]; //get data stored in memory 0.
 	        //:Todo add to buffer
 
+	        add_To_Buffer(myBufferPTR, NADC_Temperature);
 
 	        UART_putchar_n("test", 4);
 	        UART_putchar(13);

@@ -12,14 +12,14 @@
 extern uint8_t Calculate_Stats;
 
 
-void initialize_Circ_Buffer(CircBuf_t **myBase, uint8_t _length)
+void initialize_Circ_Buffer(CircBuf_t **myBase, uint16_t _length)
 {
 
     //tests
 
     if (*myBase != NULL)
     {
-        uint8_t *_buffer = (uint8_t *) malloc(_length * sizeof(uint8_t));
+        uint16_t *_buffer = (uint16_t *) malloc(_length * sizeof(uint16_t));
 
         if (_buffer != NULL)
         {
@@ -41,8 +41,10 @@ void initialize_Circ_Buffer(CircBuf_t **myBase, uint8_t _length)
     }
 }
 
-void add_To_Buffer(CircBuf_t *buf, uint8_t item)
+void add_To_Buffer(CircBuf_t *buf, uint16_t item)
 {
+    //:TODO make the buffer overwrite.
+    //:TODO if this is overwritten the number of items is still set as full, length=size
     if (buf != NULL)
     {
         //Check to see if enter or full, if so set the CalculateStats flag to 1.
@@ -56,7 +58,7 @@ void add_To_Buffer(CircBuf_t *buf, uint8_t item)
         {
             //Case 1: Empty
             (buf)->num_items++;
-            *(buf)->head = item; //* once to derefefernce doulbe pointer, then *again to deref head.
+            (buf)->head = item; //* once to derefefernce doulbe pointer, then *again to deref head.
             (buf)->head++; //move the head 1 spot.
         }
         else
@@ -64,7 +66,7 @@ void add_To_Buffer(CircBuf_t *buf, uint8_t item)
             //Case 2: Not Empty, Not Full
             if ((buf)->num_items != (buf)->length)
             {
-                *(buf)->head = item; //* once to derefefernce doulbe pointer, then *again to deref head.
+                (buf)->head = item; //* once to derefefernce doulbe pointer, then *again to deref head.
                 (buf)->num_items++;
                     if((buf)->num_items == (buf)->length){
                         //loop head around
@@ -87,7 +89,7 @@ void add_To_Buffer(CircBuf_t *buf, uint8_t item)
     }
 }
 
-int8_t remove_From_Buffer(CircBuf_t * buf)
+uint16_t remove_From_Buffer(CircBuf_t * buf)
 {
     if (buf != NULL)
     {
@@ -96,7 +98,7 @@ int8_t remove_From_Buffer(CircBuf_t * buf)
             return -1;
         }
         else{
-            uint8_t oldTail = *(buf)->tail;
+            uint16_t oldTail = *(buf)->tail;
             (buf)->num_items--;
 
             //Case 2: Not Empty, tail before head
@@ -136,7 +138,7 @@ int8_t remove_From_Buffer(CircBuf_t * buf)
  *
  * */
 
-int8_t is_Circ_Buf_Full(CircBuf_t *buf)
+uint16_t is_Circ_Buf_Full(CircBuf_t *buf)
 {
     if ((buf)->num_items == (buf)->length)
     {
@@ -148,7 +150,7 @@ int8_t is_Circ_Buf_Full(CircBuf_t *buf)
     }
 }
 
-int8_t is_Circ_Buf_Empty(CircBuf_t *buf)
+uint16_t is_Circ_Buf_Empty(CircBuf_t *buf)
 {
     if ((buf)->num_items == 0)
     {
@@ -167,10 +169,10 @@ uint16_t currentSize(CircBuf_t *buf){
 void print(CircBuf_t *buf){
     if(buf->num_items ==0)return;
 
-    uint8_t *oldTail = buf->tail;
+    uint16_t *oldTail = buf->tail;
     uint16_t numberPrinted =0;
     uint16_t oldTailPosition = buf->tailPosition;
-    uint8_t dataRead;
+    uint16_t dataRead;
 
     for(numberPrinted =0; numberPrinted < buf->num_items; numberPrinted++){
 
@@ -193,12 +195,12 @@ void print(CircBuf_t *buf){
 
 void clear_Buffer(CircBuf_t * buf){
     //check to see if valid
-    uint8_t * destination = (buf)->baseConst + ((buf)->length) *sizeof(uint16_t);
+    uint16_t * destination = (buf)->baseConst + ((buf)->length) *sizeof(uint16_t);
 
         //clear buffer
-        uint8_t *clear =   (buf)->tail;
+    uint16_t *clear =   (buf)->tail;
         int i;
-        uint8_t value = (buf)->num_items;
+        uint16_t value = (buf)->num_items;
         for( i=0; i<value; i++){
            *clear = 0;
            clear ++;

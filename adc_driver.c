@@ -7,9 +7,15 @@
 
 #include "msp.h"
 #include "lab4.h"
+
+/*  GLOBALS     */
    extern uint16_t X_ADC;
    extern uint16_t Y_ADC;
    extern uint16_t Z_ADC;
+
+   extern NADC_Temperature;
+
+
 void ADC_CONFIG(){
 
 #ifdef ADC_PORT5_PIN4
@@ -164,7 +170,7 @@ void ADC_CONFIG_Joystick(){
 
          ADC14->MCTL[0] = ADC14_MCTLN_INCH_15 | ADC14_MCTLN_VRSEL_0;      //X, full range ADG (3.3 to 0v)
          ADC14->MCTL[1] = ADC14_MCTLN_INCH_9 | ADC14_MCTLN_VRSEL_0;      //Y, full range ADG (3.3 to 0v)
-         ADC14->MCTL[2] = ADC14_MCTLN_INCH_12 | ADC14_MCTLN_VRSEL_0 | ADC14_MCTLN_EOS;      //Z, full range ADG (3.3 to 0v)
+         ADC14->MCTL[2] = ADC14_MCTLN_INCH_12 | ADC14_MCTLN_VRSEL_0 | ADC14_MCTLN_EOS;      //select, full range ADG (3.3 to 0v)
 
 
 
@@ -182,7 +188,7 @@ void ADC14_IRQHandler(){
 
         uint32_t TS30 = TLV->ADC14_REF1P2V_TS30C;
         uint32_t TS85 = TLV->ADC14_REF1P2V_TS85C;
-        uint32_t adcVal = ADC14->MEM[0];
+        /*global*/ NADC_Temperature = ADC14->MEM[0];
 
         //set a break point to determine if the interrupt was for mem[0] or channel [22]
         //float calculated_temp = (ADC14->MEM[0] - TLV->ADC14_REF1P2V_TS30C)*((85-30)/(TLV->ADC14_REF1P2V_TS85C- TLV->ADC14_REF1P2V_TS30C)) + 30;
