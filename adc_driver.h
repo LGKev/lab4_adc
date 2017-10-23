@@ -10,4 +10,7 @@
 
 void ADC_CONFIG(void);
 
+void ADC_CONFIG_Accelerometer(void);
+
+
 #endif /* ADC_DRIVER_H_ */

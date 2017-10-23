@@ -16,7 +16,9 @@
    volatile uint8_t Calculate_Stats = 0; // calculate stats on datas :Todo remove this variable
    CircBuf_t myBuffer;
    CircBuf_t * myBufferPTR = &myBuffer;
-
+   volatile uint16_t X_ADC = 0;
+   volatile uint16_t Y_ADC = 0;
+   volatile uint16_t Z_ADC = 0;
 
 /*==================================================*/
 
@@ -24,7 +26,8 @@ void main(void)
 {
 	WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;		// stop watchdog timer
 	timer_a0_config();
-	ADC_CONFIG();
+	//ADC_CONFIG(); //generic ADC, for channel 0.
+	ADC_CONFIG_Accelerometer();
 	UART_config();
 	configure_clocks();
 
