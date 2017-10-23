@@ -16,14 +16,7 @@
  * */
 void timer_a0_config(void);
 
-/*
- * Configured this to determine what ccr[1] values due
- * for a clock and how it affects the p1.7 output
- *
- * */
-void timer_a0_configTimer1();
 
-void sysTickConfig(void);
 
 
 
