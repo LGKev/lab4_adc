@@ -11,6 +11,11 @@
 #define UART_H_
 
 /*
+ * Tune the clock for the UART, uses DCO set to be 4Mhz.
+ * */
+void configure_clocks();
+
+/*
  * Configures UART A0.
  *  Clock:
  *  Baud:
