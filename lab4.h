@@ -5,6 +5,8 @@
  *      Author: kk
  */
 
+#include "msp.h"
+
 #ifndef LAB4_H_
 #define LAB4_H_
 
