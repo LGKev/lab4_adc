@@ -9,8 +9,8 @@ CMD_SRCS += \
 ../msp432p401r.cmd 
 
 C_SRCS += \
+../Circular_Buffer_8_bit.c \
 ../adc_driver.c \
-../circ_buffer_basic.c \
 ../lab4.c \
 ../main.c \
 ../startup_msp432p401r_ccs.c \
@@ -19,8 +19,8 @@ C_SRCS += \
 ../uart.c 
 
 C_DEPS += \
+./Circular_Buffer_8_bit.d \
 ./adc_driver.d \
-./circ_buffer_basic.d \
 ./lab4.d \
 ./main.d \
 ./startup_msp432p401r_ccs.d \
@@ -29,8 +29,8 @@ C_DEPS += \
 ./uart.d 
 
 OBJS += \
+./Circular_Buffer_8_bit.obj \
 ./adc_driver.obj \
-./circ_buffer_basic.obj \
 ./lab4.obj \
 ./main.obj \
 ./startup_msp432p401r_ccs.obj \
@@ -39,8 +39,8 @@ OBJS += \
 ./uart.obj 
 
 OBJS__QUOTED += \
+"Circular_Buffer_8_bit.obj" \
 "adc_driver.obj" \
-"circ_buffer_basic.obj" \
 "lab4.obj" \
 "main.obj" \
 "startup_msp432p401r_ccs.obj" \
@@ -49,8 +49,8 @@ OBJS__QUOTED += \
 "uart.obj" 
 
 C_DEPS__QUOTED += \
+"Circular_Buffer_8_bit.d" \
 "adc_driver.d" \
-"circ_buffer_basic.d" \
 "lab4.d" \
 "main.d" \
 "startup_msp432p401r_ccs.d" \
@@ -59,8 +59,8 @@ C_DEPS__QUOTED += \
 "uart.d" 
 
 C_SRCS__QUOTED += \
+"../Circular_Buffer_8_bit.c" \
 "../adc_driver.c" \
-"../circ_buffer_basic.c" \
 "../lab4.c" \
 "../main.c" \
 "../startup_msp432p401r_ccs.c" \

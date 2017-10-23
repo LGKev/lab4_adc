@@ -2,6 +2,8 @@
 #include "adc_driver.h"
 #include "lab4.h"
 #include "timer.h"
+#include "Circular_Buffer_8_bit.h"
+#include "uart.h"
 
 /*
  * main.c
@@ -11,6 +13,9 @@
 /*     Globals                                      */
 
    volatile uint8_t FLAG_Collect_Data = 0; //collect data from the mem[0] when set to 1
+   volatile uint8_t Calculate_Stats = 0; // calculate stats on datas :Todo remove this variable
+   CircBuf_t myBuffer;
+   CircBuf_t * myBufferPTR = &myBuffer;
 
 
 /*==================================================*/
@@ -28,13 +33,23 @@ void main(void)
 
 	__enable_interrupt();
 	while(1){
+
+        UART_putchar(67);
+
 	    ADC14->CTL0 |= ADC14_CTL0_SC | ADC14_CTL0_ENC; //start sample, enable conversion?
 
 	    if(FLAG_Collect_Data == 1){
 	        //add to buffer but for now just put into variable
 	        uint16_t data = ADC14->MEM[0]; //get data stored in memory 0.
-	        //:Todo add to buffe
+	        //:Todo add to buffer
+
+
+
 	        FLAG_Collect_Data = 0;
+
+
+
+//	        uart_putchar_n("test", 4);
 	    }
 	}
 }

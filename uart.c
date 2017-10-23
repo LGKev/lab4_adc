@@ -5,9 +5,9 @@
  *      Author: kevinKuwata1
  */
 
+#include <Circular_Buffer_8_bit.h>
 #include "uart.h"
 #include "msp.h"
-#include "circ_buffer_basic.h"
 
 #define BLUE_LED            (BIT2)
 
