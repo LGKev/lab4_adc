@@ -33,6 +33,9 @@ void main(void)
 
     initialize_Circ_Buffer(&myBufferPTR, 60);
 
+    //enable the button interrupt
+    Button_Interrupt_Config();
+
 	WDT_A->CTL = WDT_A_CTL_PW | WDT_A_CTL_HOLD;		// stop watchdog timer
 	timer_a0_config();
 	ADC_CONFIG(); //generic ADC, for channel 0.

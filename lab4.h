@@ -27,6 +27,8 @@
  */
 float voltage_from_ADC(uint16_t nadc, float vref, uint8_t resolution_number_of_bits);
 
+void Button_Interrupt_Config(void);
+
 #endif /* LAB4_H_ */
 
 
