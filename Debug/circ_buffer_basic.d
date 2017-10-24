@@ -15,6 +15,7 @@ circ_buffer_basic.obj: C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/CMSIS
 circ_buffer_basic.obj: C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/CMSIS/cmsis_compiler.h
 circ_buffer_basic.obj: C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/system_msp432p401r.h
 circ_buffer_basic.obj: C:/Users/kwat1/Documents/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/string.h
+circ_buffer_basic.obj: ../lab4.h
 
 ../circ_buffer_basic.c: 
 C:/Users/kwat1/Documents/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdlib.h: 
@@ -31,3 +32,4 @@ C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/CMSIS/core_cm4.h:
 C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/CMSIS/cmsis_compiler.h: 
 C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/system_msp432p401r.h: 
 C:/Users/kwat1/Documents/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/string.h: 
+../lab4.h: 

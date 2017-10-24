@@ -129,10 +129,7 @@ void UART_putchar_n(uint8_t * data, uint32_t length){
 
    for(index = 0; index <length ; index++){
        UART_putchar(data[index]);
-      // for(txDelay = 0; txDelay < 300; txDelay++);
    }
-   UART_putchar(13);
-
 }
 
 

@@ -27,7 +27,56 @@
  */
 float voltage_from_ADC(uint16_t nadc, float vref, uint8_t resolution_number_of_bits);
 
+
+/*@name Temperature_from_voltage_celsius
+ * @brief
+ *      calculate the temperature from the N_adc value
+ *      returns temperature in Cel
+ * @param nadc value
+ * @param vref
+ * @param resolution
+ * @param number after decimal point
+ *
+ * @return temperature in CELCIUS FLOAT
+ *
+ * */
+float Temperature_from_voltage_Celsius(uint16_t nadc, float vref, uint8_t resolution_number_of_bits);
+
+
+
+/*@name Temperature_from_voltage_Fahrenheit
+ * @brief
+ *      calculate the temperature from the N_adc value
+ *      returns temperature in Celcius
+ * @param nadc value
+ * @param vref
+ * @param resolution
+ * @param number after decimal point
+ *
+ * @return temperature in  FLOAT
+ *
+ * */
+float Temperature_from_voltage_Fahrenheit(uint16_t nadc, float vref, uint8_t resolution_number_of_bits);
+
+
+/*@name Temperature_from_voltage_Kevlvin
+ * @brief
+ *      calculate the temperature from the N_adc value
+ *      returns temperature in Celcius
+ * @param nadc value
+ * @param vref
+ * @param resolution
+ * @param number after decimal point
+ *
+ * @return temperature in Kelvin FLOAT
+ *
+ * */
+float Temperature_from_voltage_Kelvin(uint16_t nadc, float vref, uint8_t resolution_number_of_bits );
+
 void Button_Interrupt_Config(void);
+
+void buzzer_Config(void);
+void buffer_Full_Config();
 
 #endif /* LAB4_H_ */
 

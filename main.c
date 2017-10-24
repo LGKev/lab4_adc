@@ -44,16 +44,21 @@ void main(void)
 	UART_config();
 	configure_clocks();
 
+	buzzer_Config();
+	buffer_Full_Config();
+
 	/*visual output*/
 	P2SEL0 &= ~BIT2; //gpio
 	P2SEL1 &= ~BIT2; //gpio
 	P2->DIR = BIT2;
 	P2->OUT = BIT2;
 
-	P1SEL0 |= BIT0;
-	P1SEL1 |= BIT0;
-	P1->DIR = BIT1;
-	P1->OUT = BIT1;
+	P1SEL0 &= ~BIT0;
+	P1SEL1 &= ~BIT0;
+	P1->DIR = BIT0;
+	P1->OUT &= ~BIT0;
+
+
 
 	__enable_interrupt();
 	while(1){
@@ -67,6 +72,18 @@ void main(void)
 	        //:Todo add to buffer
 	        __disable_interrupts();
 	        add_To_Buffer(&myBufferPTR, NADC_Temperature);
+
+
+	        float  dataRead_float_C =  Temperature_from_voltage_Celsius(NADC_Temperature, 1.2, 14);
+	        char dataString_C[10];
+	        ftoa(dataRead_float_C, dataString_C, 3);
+
+
+	        UART_putchar_n(dataString_C, strlen(dataString_C));
+	        //add units: C
+	        UART_putchar_n(" °C  ", strlen(" °C  "));
+	        UART_putchar(13);
+
 	        __enable_interrupts();
 //	        UART_putchar_n("test", 4);
 //	        UART_putchar(13);

@@ -204,7 +204,7 @@ void ADC14_IRQHandler(){
     }
 
     //:TODO why is htis IFG14 and not mem[0] flag?
-    if(ADC14->IFGR0 & ADC14_IFGR0_IFG14){
+    if(ADC14->IFGR0 & ADC14_IFGR0_IFG2){
          X_ADC = ADC14->MEM[0];
          Y_ADC = ADC14->MEM[1];
          Z_ADC = ADC14->MEM[2];

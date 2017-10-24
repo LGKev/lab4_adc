@@ -1,17 +1,17 @@
 ******************************************************************************
                   TI ARM Linker PC v16.9.4                     
 ******************************************************************************
->> Linked Mon Oct 23 22:32:04 2017
+>> Linked Tue Oct 24 13:55:11 2017
 
 OUTPUT FILE NAME:   <adc_lab4.out>
-ENTRY POINT SYMBOL: "_c_int00"  address: 000027d5
+ENTRY POINT SYMBOL: "_c_int00"  address: 00002aed
 
 
 MEMORY CONFIGURATION
 
          name            origin    length      used     unused   attr    fill
 ----------------------  --------  ---------  --------  --------  ----  --------
-  MAIN                  00000000   00040000  00002a50  0003d5b0  R  X
+  MAIN                  00000000   00040000  00002d68  0003d298  R  X
   INFO                  00200000   00004000  00000000  00004000  R  X
   SRAM_CODE             01000000   00010000  00000654  0000f9ac  RW X
   SRAM_DATA             20000000   00010000  00000654  0000f9ac  RW  
@@ -21,11 +21,11 @@ SEGMENT ALLOCATION MAP
 
 run origin  load origin   length   init length attrs members
 ----------  ----------- ---------- ----------- ----- -------
-00000000    00000000    00002a50   00002a50    r-x
+00000000    00000000    00002d68   00002d68    r-x
   00000000    00000000    000000e4   000000e4    r-- .intvecs
-  000000e4    000000e4    000028ec   000028ec    r-x .text
-  000029d0    000029d0    00000030   00000030    r-- .const
-  00002a00    00002a00    00000050   00000050    r-- .cinit
+  000000e4    000000e4    00002c04   00002c04    r-x .text
+  00002ce8    00002ce8    00000030   00000030    r-- .const
+  00002d18    00002d18    00000050   00000050    r-- .cinit
 20000000    20000000    00000454   00000000    rw-
   20000000    20000000    00000400   00000000    rw- .sysmem
   20000400    20000400    0000003c   00000000    rw- .data
@@ -44,58 +44,58 @@ section   page    origin      length       input sections
 
 .binit     0    00000000    00000000     
 
-.text      0    000000e4    000028ec     
+.text      0    000000e4    00002c04     
                   000000e4    000009ac     rtsv7M4_T_le_v4SPD16_eabi.lib : e_pow.obj (.text)
-                  00000a90    000003d0                                   : memory.obj (.text)
-                  00000e60    000003b8     uart.obj (.text)
-                  00001218    00000330     circ_buffer_basic.obj (.text)
-                  00001548    0000032c     system_msp432p401r.obj (.text)
-                  00001874    00000268     adc_driver.obj (.text)
-                  00001adc    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.obj (.text)
-                  00001c92    00000002                                   : mpu_init.obj (.text)
-                  00001c94    00000174     lab4.obj (.text)
-                  00001e08    00000170     rtsv7M4_T_le_v4SPD16_eabi.lib : e_sqrt.obj (.text)
-                  00001f78    00000136                                   : fd_div_t2.obj (.text)
-                  000020ae    000000fc                                   : fd_mul_t2.obj (.text)
-                  000021aa    00000002                                   : startup.obj (.text)
-                  000021ac    000000fc                                   : s_scalbn.obj (.text)
-                  000022a8    000000fc     timer.obj (.text)
-                  000023a4    000000c4     main.obj (.text)
-                  00002468    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
-                  00002504    00000086                                   : fd_cmp_t2.obj (.text:__aeabi_cdcmple)
-                  0000258a    00000086                                   : fd_cmp_t2.obj (.text:__aeabi_cdrcmple)
-                  00002610    0000007a                                   : memset_t2.obj (.text)
-                  0000268a    00000002     --HOLE-- [fill = 0]
-                  0000268c    00000070                                   : autoinit.obj (.text)
-                  000026fc    0000006e                                   : fd_tos_t2.obj (.text)
-                  0000276a    00000068                                   : copy_decompress_lzss.obj (.text:decompress:lzss)
-                  000027d2    00000002     --HOLE-- [fill = 0]
-                  000027d4    00000054                                   : boot.obj (.text)
-                  00002828    00000054                                   : exit.obj (.text)
-                  0000287c    0000004c                                   : cpy_tbl.obj (.text)
-                  000028c8    00000038                                   : fs_tod_t2.obj (.text)
-                  00002900    0000002e                                   : i_tofd_t2.obj (.text)
-                  0000292e    00000020                                   : u_tofd_t2.obj (.text)
-                  0000294e    00000002     --HOLE-- [fill = 0]
-                  00002950    00000018                                   : args_main.obj (.text)
-                  00002968    00000014                                   : _lock.obj (.text)
-                  0000297c    00000014                                   : s_copysign.obj (.text)
-                  00002990    00000014                                   : strlen.obj (.text)
-                  000029a4    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
-                  000029b2    0000000e     startup_msp432p401r_ccs.obj (.text)
-                  000029c0    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
-                  000029cc    00000004                                   : pre_init.obj (.text)
+                  00000a90    00000430     circ_buffer_basic.obj (.text)
+                  00000ec0    000003d0     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.obj (.text)
+                  00001290    000003b0     uart.obj (.text)
+                  00001640    00000334     lab4.obj (.text)
+                  00001974    0000032c     system_msp432p401r.obj (.text)
+                  00001ca0    00000268     adc_driver.obj (.text)
+                  00001f08    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.obj (.text)
+                  000020be    00000002                                   : mpu_init.obj (.text)
+                  000020c0    00000170                                   : e_sqrt.obj (.text)
+                  00002230    00000136                                   : fd_div_t2.obj (.text)
+                  00002366    00000002                                   : startup.obj (.text)
+                  00002368    00000124     main.obj (.text)
+                  0000248c    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.obj (.text)
+                  00002588    000000fc                                   : s_scalbn.obj (.text)
+                  00002684    000000fc     timer.obj (.text)
+                  00002780    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  0000281c    00000086                                   : fd_cmp_t2.obj (.text:__aeabi_cdcmple)
+                  000028a2    00000086                                   : fd_cmp_t2.obj (.text:__aeabi_cdrcmple)
+                  00002928    0000007a                                   : memset_t2.obj (.text)
+                  000029a2    00000002     --HOLE-- [fill = 0]
+                  000029a4    00000070                                   : autoinit.obj (.text)
+                  00002a14    0000006e                                   : fd_tos_t2.obj (.text)
+                  00002a82    00000068                                   : copy_decompress_lzss.obj (.text:decompress:lzss)
+                  00002aea    00000002     --HOLE-- [fill = 0]
+                  00002aec    00000054                                   : boot.obj (.text)
+                  00002b40    00000054                                   : exit.obj (.text)
+                  00002b94    0000004c                                   : cpy_tbl.obj (.text)
+                  00002be0    00000038                                   : fs_tod_t2.obj (.text)
+                  00002c18    0000002e                                   : i_tofd_t2.obj (.text)
+                  00002c46    00000020                                   : u_tofd_t2.obj (.text)
+                  00002c66    00000002     --HOLE-- [fill = 0]
+                  00002c68    00000018                                   : args_main.obj (.text)
+                  00002c80    00000014                                   : _lock.obj (.text)
+                  00002c94    00000014                                   : s_copysign.obj (.text)
+                  00002ca8    00000014                                   : strlen.obj (.text)
+                  00002cbc    0000000e                                   : copy_decompress_none.obj (.text:decompress:none)
+                  00002cca    0000000e     startup_msp432p401r_ccs.obj (.text)
+                  00002cd8    0000000c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
+                  00002ce4    00000004                                   : pre_init.obj (.text)
 
-.const     0    000029d0    00000030     
-                  000029d0    00000030     rtsv7M4_T_le_v4SPD16_eabi.lib : e_pow.obj (.const:$O1$$)
+.const     0    00002ce8    00000030     
+                  00002ce8    00000030     rtsv7M4_T_le_v4SPD16_eabi.lib : e_pow.obj (.const:$O1$$)
 
-.cinit     0    00002a00    00000050     
-                  00002a00    00000025     (.cinit..data.load) [load image, compression = lzss]
-                  00002a25    00000003     --HOLE-- [fill = 0]
-                  00002a28    0000000c     (__TI_handler_table)
-                  00002a34    00000004     --HOLE-- [fill = 0]
-                  00002a38    00000008     (.cinit..bss.load) [load image, compression = zero_init]
-                  00002a40    00000010     (__TI_cinit_table)
+.cinit     0    00002d18    00000050     
+                  00002d18    00000025     (.cinit..data.load) [load image, compression = lzss]
+                  00002d3d    00000003     --HOLE-- [fill = 0]
+                  00002d40    0000000c     (__TI_handler_table)
+                  00002d4c    00000004     --HOLE-- [fill = 0]
+                  00002d50    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00002d58    00000010     (__TI_cinit_table)
 
 .init_array 
 *          0    00000000    00000000     UNINITIALIZED
@@ -124,16 +124,16 @@ MODULE SUMMARY
        Module                        code    ro data   rw data
        ------                        ----    -------   -------
     .\
-       uart.obj                      952     0         0      
+       circ_buffer_basic.obj         1072    0         0      
+       uart.obj                      944     0         0      
+       lab4.obj                      820     0         0      
        system_msp432p401r.obj        812     0         8      
-       circ_buffer_basic.obj         816     0         0      
        adc_driver.obj                616     0         0      
-       lab4.obj                      372     0         0      
-       main.obj                      196     0         80     
+       main.obj                      292     0         80     
        timer.obj                     252     0         0      
        startup_msp432p401r_ccs.obj   14      228       0      
     +--+-----------------------------+-------+---------+---------+
-       Total:                        4030    228       88     
+       Total:                        4822    228       88     
                                                               
     C:\Users\kwat1\Documents\ccsv7\tools\compiler\ti-cgt-arm_16.9.4.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
        e_pow.obj                     2476    48        0      
@@ -173,19 +173,19 @@ MODULE SUMMARY
        Stack:                        0       0         1024   
        Linker Generated:             0       73        0      
     +--+-----------------------------+-------+---------+---------+
-       Grand Total:                  10470   349       3240   
+       Grand Total:                  11262   349       3240   
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 00002a40 records: 2, size/record: 8, table size: 16
-	.data: load addr=00002a00, load size=00000025 bytes, run addr=20000400, run size=0000003c bytes, compression=lzss
-	.bss: load addr=00002a38, load size=00000008 bytes, run addr=2000043c, run size=00000018 bytes, compression=zero_init
+__TI_cinit_table @ 00002d58 records: 2, size/record: 8, table size: 16
+	.data: load addr=00002d18, load size=00000025 bytes, run addr=20000400, run size=0000003c bytes, compression=lzss
+	.bss: load addr=00002d50, load size=00000008 bytes, run addr=2000043c, run size=00000018 bytes, compression=zero_init
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 00002a28 records: 3, size/record: 4, table size: 12
+__TI_handler_table @ 00002d40 records: 3, size/record: 4, table size: 12
 	index: 0, handler: __TI_decompress_lzss
 	index: 1, handler: __TI_decompress_none
 	index: 2, handler: __TI_zero_init
@@ -193,359 +193,367 @@ __TI_handler_table @ 00002a28 records: 3, size/record: 4, table size: 12
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
 
-address   name                           
--------   ----                           
-00001a2b  ADC14_IRQHandler               
-00001a2b  ADC14_IRQHandler               
-000018a1  ADC_CONFIG                     
-000018f3  ADC_CONFIG_Accelerometer       
-0000198f  ADC_CONFIG_Joystick            
-000029bf  AES256_IRQHandler              
-000029bf  BusFault_Handler               
-00001d33  Button_Interrupt_Config        
-00002829  C$$EXIT                        
-000029bf  COMP_E0_IRQHandler             
-000029bf  COMP_E1_IRQHandler             
-000029bf  CS_IRQHandler                  
-20000401  Calculate_Stats                
-000029bf  DMA_ERR_IRQHandler             
-000029bf  DMA_INT0_IRQHandler            
-000029bf  DMA_INT1_IRQHandler            
-000029bf  DMA_INT2_IRQHandler            
-000029bf  DMA_INT3_IRQHandler            
-000029bf  DebugMon_Handler               
-000029bf  Default_Handler                
-00001191  EUSCIA0_IRQHandler             
-00001191  EUSCIA0_IRQHandler             
-000029bf  EUSCIA1_IRQHandler             
-000029bf  EUSCIA2_IRQHandler             
-000029bf  EUSCIA3_IRQHandler             
-000029bf  EUSCIB0_IRQHandler             
-000029bf  EUSCIB1_IRQHandler             
-000029bf  EUSCIB2_IRQHandler             
-000029bf  EUSCIB3_IRQHandler             
-20000400  FLAG_Collect_Data              
-000029bf  FLCTL_IRQHandler               
-000029bf  FPU_IRQHandler                 
-000029bf  HardFault_Handler              
-000029bf  MemManage_Handler              
-2000040e  NADC_Temperature               
-000029bf  NMI_Handler                    
-000029bf  PCM_IRQHandler                 
-00001d8d  PORT1_IRQHandler               
-00001d8d  PORT1_IRQHandler               
-000029bf  PORT2_IRQHandler               
-000029bf  PORT3_IRQHandler               
-000029bf  PORT4_IRQHandler               
-000029bf  PORT5_IRQHandler               
-000029bf  PORT6_IRQHandler               
-000029bf  PSS_IRQHandler                 
-000029bf  PendSV_Handler                 
-000029bf  RTC_C_IRQHandler               
-000029b3  Reset_Handler                  
-UNDEFED   SHT$$INIT_ARRAY$$Base          
-UNDEFED   SHT$$INIT_ARRAY$$Limit         
-000029bf  SVC_Handler                    
-000029bf  SysTick_Handler                
-20000438  SystemCoreClock                
-00001549  SystemCoreClockUpdate          
-000017bd  SystemInit                     
-000029bf  T32_INT1_IRQHandler            
-000029bf  T32_INT2_IRQHandler            
-000029bf  T32_INTC_IRQHandler            
-00002313  TA0_0_IRQHandler               
-00002313  TA0_0_IRQHandler               
-00002343  TA0_N_IRQHandler               
-00002343  TA0_N_IRQHandler               
-000029bf  TA1_0_IRQHandler               
-000029bf  TA1_N_IRQHandler               
-000029bf  TA2_0_IRQHandler               
-000029bf  TA2_N_IRQHandler               
-000029bf  TA3_0_IRQHandler               
-000029bf  TA3_N_IRQHandler               
-00000ec3  UART_config                    
-00000f4b  UART_putchar                   
-00000f67  UART_putchar_n                 
-000029bf  UsageFault_Handler             
-4000480c  WDTCTL_SYM                     
-000029bf  WDT_A_IRQHandler               
-20000408  X_ADC                          
-2000040a  Y_ADC                          
-2000040c  Z_ADC                          
-20010000  __STACK_END                    
-00000200  __STACK_SIZE                   
-00000400  __SYSMEM_SIZE                  
-00002a40  __TI_CINIT_Base                
-00002a50  __TI_CINIT_Limit               
-00002a28  __TI_Handler_Table_Base        
-00002a34  __TI_Handler_Table_Limit       
-0000268d  __TI_auto_init                 
-20000410  __TI_cleanup_ptr               
-0000276b  __TI_decompress_lzss           
-000029a5  __TI_decompress_none           
-20000414  __TI_dtors_ptr                 
-20000418  __TI_enable_exit_profile_output
-ffffffff  __TI_pprof_out_hndl            
-ffffffff  __TI_prof_data_size            
-ffffffff  __TI_prof_data_start           
-00000000  __TI_static_base__             
-000029c1  __TI_zero_init                 
-00002505  __aeabi_cdcmpeq                
-00002505  __aeabi_cdcmple                
-0000258b  __aeabi_cdrcmple               
-000026fd  __aeabi_d2f                    
-00001ae7  __aeabi_dadd                   
-00001f79  __aeabi_ddiv                   
-000020af  __aeabi_dmul                   
-00001add  __aeabi_dsub                   
-000028c9  __aeabi_f2d                    
-00002901  __aeabi_i2d                    
-00002611  __aeabi_memclr                 
-00002611  __aeabi_memclr4                
-00002611  __aeabi_memclr8                
-00002469  __aeabi_memcpy                 
-00002469  __aeabi_memcpy4                
-00002469  __aeabi_memcpy8                
-00002613  __aeabi_memset                 
-00002613  __aeabi_memset4                
-00002613  __aeabi_memset8                
-0000292f  __aeabi_ui2d                   
-ffffffff  __binit__                      
-ffffffff  __c_args__                     
-00001c93  __mpu_init                     
-2000fe00  __stack                        
-00002951  _args_main                     
-000027d5  _c_int00                       
-20000428  _lock                          
-00002977  _nop                           
-0000296f  _register_lock                 
-00002969  _register_unlock               
-20000000  _sys_memory                    
-000021ab  _system_post_cinit             
-000029cd  _system_pre_init               
-2000042c  _unlock                        
-0000282d  abort                          
-0000126d  add_To_Buffer                  
-ffffffff  binit                          
-00000e31  calloc                         
-000014ab  clear_Buffer                   
-00000e8d  configure_clocks               
-0000287d  copy_in                        
-0000297d  copysign                       
-0000297d  copysignl                      
-000013f5  currentSize                    
-20000430  errno                          
-00002835  exit                           
-00000b7b  free                           
-000010d1  ftoa                           
-00001219  initialize_Circ_Buffer         
-00000ffd  intToStr                       
-00000000  interruptVectors               
-000013dd  is_Circ_Buf_Empty              
-000013bd  is_Circ_Buf_Full               
-00001067  itoa                           
-000021ad  ldexp                          
-000021ad  ldexpl                         
-000023a5  main                           
-20000434  main_func_sp                   
-00000b11  malloc                         
-00000d45  memalign                       
-00002469  memcpy                         
-00002619  memset                         
-00000a91  minit                          
-2000043c  myBuffer                       
-20000404  myBufferPTR                    
-000000e5  pow                            
-000000e5  powl                           
-00001405  print                          
-00000c3d  realloc                        
-000012f9  remove_From_Buffer             
-00000fab  reverse                        
-000021ad  scalbn                         
-000021ad  scalbnl                        
-00001e09  sqrt                           
-00001e09  sqrtl                          
-00002991  strlen                         
-000022d5  timer_a0_config                
-00001cc1  voltage_from_ADC               
+address   name                            
+-------   ----                            
+00001e57  ADC14_IRQHandler                
+00001e57  ADC14_IRQHandler                
+00001ccd  ADC_CONFIG                      
+00001d1f  ADC_CONFIG_Accelerometer        
+00001dbb  ADC_CONFIG_Joystick             
+00002cd7  AES256_IRQHandler               
+00002cd7  BusFault_Handler                
+00001755  Button_Interrupt_Config         
+00002b41  C$$EXIT                         
+00002cd7  COMP_E0_IRQHandler              
+00002cd7  COMP_E1_IRQHandler              
+00002cd7  CS_IRQHandler                   
+20000401  Calculate_Stats                 
+00002cd7  DMA_ERR_IRQHandler              
+00002cd7  DMA_INT0_IRQHandler             
+00002cd7  DMA_INT1_IRQHandler             
+00002cd7  DMA_INT2_IRQHandler             
+00002cd7  DMA_INT3_IRQHandler             
+00002cd7  DebugMon_Handler                
+00002cd7  Default_Handler                 
+000015b9  EUSCIA0_IRQHandler              
+000015b9  EUSCIA0_IRQHandler              
+00002cd7  EUSCIA1_IRQHandler              
+00002cd7  EUSCIA2_IRQHandler              
+00002cd7  EUSCIA3_IRQHandler              
+00002cd7  EUSCIB0_IRQHandler              
+00002cd7  EUSCIB1_IRQHandler              
+00002cd7  EUSCIB2_IRQHandler              
+00002cd7  EUSCIB3_IRQHandler              
+20000400  FLAG_Collect_Data               
+00002cd7  FLCTL_IRQHandler                
+00002cd7  FPU_IRQHandler                  
+00002cd7  HardFault_Handler               
+00002cd7  MemManage_Handler               
+2000040e  NADC_Temperature                
+00002cd7  NMI_Handler                     
+00002cd7  PCM_IRQHandler                  
+00001885  PORT1_IRQHandler                
+00001885  PORT1_IRQHandler                
+00002cd7  PORT2_IRQHandler                
+00002cd7  PORT3_IRQHandler                
+00002cd7  PORT4_IRQHandler                
+000018c7  PORT5_IRQHandler                
+000018c7  PORT5_IRQHandler                
+00002cd7  PORT6_IRQHandler                
+00002cd7  PSS_IRQHandler                  
+00002cd7  PendSV_Handler                  
+00002cd7  RTC_C_IRQHandler                
+00002ccb  Reset_Handler                   
+UNDEFED   SHT$$INIT_ARRAY$$Base           
+UNDEFED   SHT$$INIT_ARRAY$$Limit          
+00002cd7  SVC_Handler                     
+00002cd7  SysTick_Handler                 
+20000438  SystemCoreClock                 
+00001975  SystemCoreClockUpdate           
+00001be9  SystemInit                      
+00002cd7  T32_INT1_IRQHandler             
+00002cd7  T32_INT2_IRQHandler             
+00002cd7  T32_INTC_IRQHandler             
+000026ef  TA0_0_IRQHandler                
+000026ef  TA0_0_IRQHandler                
+0000271f  TA0_N_IRQHandler                
+0000271f  TA0_N_IRQHandler                
+00002cd7  TA1_0_IRQHandler                
+00002cd7  TA1_N_IRQHandler                
+00002cd7  TA2_0_IRQHandler                
+00002cd7  TA2_N_IRQHandler                
+00002cd7  TA3_0_IRQHandler                
+00002cd7  TA3_N_IRQHandler                
+000016df  Temperature_from_voltage_Celsius
+000012f3  UART_config                     
+0000137b  UART_putchar                    
+00001397  UART_putchar_n                  
+00002cd7  UsageFault_Handler              
+4000480c  WDTCTL_SYM                      
+00002cd7  WDT_A_IRQHandler                
+20000408  X_ADC                           
+2000040a  Y_ADC                           
+2000040c  Z_ADC                           
+20010000  __STACK_END                     
+00000200  __STACK_SIZE                    
+00000400  __SYSMEM_SIZE                   
+00002d58  __TI_CINIT_Base                 
+00002d68  __TI_CINIT_Limit                
+00002d40  __TI_Handler_Table_Base         
+00002d4c  __TI_Handler_Table_Limit        
+000029a5  __TI_auto_init                  
+20000410  __TI_cleanup_ptr                
+00002a83  __TI_decompress_lzss            
+00002cbd  __TI_decompress_none            
+20000414  __TI_dtors_ptr                  
+20000418  __TI_enable_exit_profile_output 
+ffffffff  __TI_pprof_out_hndl             
+ffffffff  __TI_prof_data_size             
+ffffffff  __TI_prof_data_start            
+00000000  __TI_static_base__              
+00002cd9  __TI_zero_init                  
+0000281d  __aeabi_cdcmpeq                 
+0000281d  __aeabi_cdcmple                 
+000028a3  __aeabi_cdrcmple                
+00002a15  __aeabi_d2f                     
+00001f13  __aeabi_dadd                    
+00002231  __aeabi_ddiv                    
+0000248d  __aeabi_dmul                    
+00001f09  __aeabi_dsub                    
+00002be1  __aeabi_f2d                     
+00002c19  __aeabi_i2d                     
+00002929  __aeabi_memclr                  
+00002929  __aeabi_memclr4                 
+00002929  __aeabi_memclr8                 
+00002781  __aeabi_memcpy                  
+00002781  __aeabi_memcpy4                 
+00002781  __aeabi_memcpy8                 
+0000292b  __aeabi_memset                  
+0000292b  __aeabi_memset4                 
+0000292b  __aeabi_memset8                 
+00002c47  __aeabi_ui2d                    
+ffffffff  __binit__                       
+ffffffff  __c_args__                      
+000020bf  __mpu_init                      
+2000fe00  __stack                         
+00002c69  _args_main                      
+00002aed  _c_int00                        
+20000428  _lock                           
+00002c8f  _nop                            
+00002c87  _register_lock                  
+00002c81  _register_unlock                
+20000000  _sys_memory                     
+00002367  _system_post_cinit              
+00002ce5  _system_pre_init                
+2000042c  _unlock                         
+00002b45  abort                           
+00000ae5  add_To_Buffer                   
+ffffffff  binit                           
+00001805  buffer_Full_Config              
+00001825  buzzer_Config                   
+00001261  calloc                          
+00000de9  clear_Buffer                    
+000012bd  configure_clocks                
+00002b95  copy_in                         
+00002c95  copysign                        
+00002c95  copysignl                       
+00000c77  currentSize                     
+20000430  errno                           
+00002b4d  exit                            
+00000fab  free                            
+000014fb  ftoa                            
+00000a91  initialize_Circ_Buffer          
+00001427  intToStr                        
+00000000  interruptVectors                
+00000c5f  is_Circ_Buf_Empty               
+00000c3f  is_Circ_Buf_Full                
+00001491  itoa                            
+00002589  ldexp                           
+00002589  ldexpl                          
+00002369  main                            
+20000434  main_func_sp                    
+00000f41  malloc                          
+00001175  memalign                        
+00002781  memcpy                          
+00002931  memset                          
+00000ec1  minit                           
+2000043c  myBuffer                        
+20000404  myBufferPTR                     
+000000e5  pow                             
+000000e5  powl                            
+00000c87  print                           
+0000106d  realloc                         
+00000b7b  remove_From_Buffer              
+000013d5  reverse                         
+00002589  scalbn                          
+00002589  scalbnl                         
+000020c1  sqrt                            
+000020c1  sqrtl                           
+00002ca9  strlen                          
+000026b1  timer_a0_config                 
+0000166d  voltage_from_ADC                
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
 
-address   name                           
--------   ----                           
-00000000  __TI_static_base__             
-00000000  interruptVectors               
-000000e5  pow                            
-000000e5  powl                           
-00000200  __STACK_SIZE                   
-00000400  __SYSMEM_SIZE                  
-00000a91  minit                          
-00000b11  malloc                         
-00000b7b  free                           
-00000c3d  realloc                        
-00000d45  memalign                       
-00000e31  calloc                         
-00000e8d  configure_clocks               
-00000ec3  UART_config                    
-00000f4b  UART_putchar                   
-00000f67  UART_putchar_n                 
-00000fab  reverse                        
-00000ffd  intToStr                       
-00001067  itoa                           
-000010d1  ftoa                           
-00001191  EUSCIA0_IRQHandler             
-00001191  EUSCIA0_IRQHandler             
-00001219  initialize_Circ_Buffer         
-0000126d  add_To_Buffer                  
-000012f9  remove_From_Buffer             
-000013bd  is_Circ_Buf_Full               
-000013dd  is_Circ_Buf_Empty              
-000013f5  currentSize                    
-00001405  print                          
-000014ab  clear_Buffer                   
-00001549  SystemCoreClockUpdate          
-000017bd  SystemInit                     
-000018a1  ADC_CONFIG                     
-000018f3  ADC_CONFIG_Accelerometer       
-0000198f  ADC_CONFIG_Joystick            
-00001a2b  ADC14_IRQHandler               
-00001a2b  ADC14_IRQHandler               
-00001add  __aeabi_dsub                   
-00001ae7  __aeabi_dadd                   
-00001c93  __mpu_init                     
-00001cc1  voltage_from_ADC               
-00001d33  Button_Interrupt_Config        
-00001d8d  PORT1_IRQHandler               
-00001d8d  PORT1_IRQHandler               
-00001e09  sqrt                           
-00001e09  sqrtl                          
-00001f79  __aeabi_ddiv                   
-000020af  __aeabi_dmul                   
-000021ab  _system_post_cinit             
-000021ad  ldexp                          
-000021ad  ldexpl                         
-000021ad  scalbn                         
-000021ad  scalbnl                        
-000022d5  timer_a0_config                
-00002313  TA0_0_IRQHandler               
-00002313  TA0_0_IRQHandler               
-00002343  TA0_N_IRQHandler               
-00002343  TA0_N_IRQHandler               
-000023a5  main                           
-00002469  __aeabi_memcpy                 
-00002469  __aeabi_memcpy4                
-00002469  __aeabi_memcpy8                
-00002469  memcpy                         
-00002505  __aeabi_cdcmpeq                
-00002505  __aeabi_cdcmple                
-0000258b  __aeabi_cdrcmple               
-00002611  __aeabi_memclr                 
-00002611  __aeabi_memclr4                
-00002611  __aeabi_memclr8                
-00002613  __aeabi_memset                 
-00002613  __aeabi_memset4                
-00002613  __aeabi_memset8                
-00002619  memset                         
-0000268d  __TI_auto_init                 
-000026fd  __aeabi_d2f                    
-0000276b  __TI_decompress_lzss           
-000027d5  _c_int00                       
-00002829  C$$EXIT                        
-0000282d  abort                          
-00002835  exit                           
-0000287d  copy_in                        
-000028c9  __aeabi_f2d                    
-00002901  __aeabi_i2d                    
-0000292f  __aeabi_ui2d                   
-00002951  _args_main                     
-00002969  _register_unlock               
-0000296f  _register_lock                 
-00002977  _nop                           
-0000297d  copysign                       
-0000297d  copysignl                      
-00002991  strlen                         
-000029a5  __TI_decompress_none           
-000029b3  Reset_Handler                  
-000029bf  AES256_IRQHandler              
-000029bf  BusFault_Handler               
-000029bf  COMP_E0_IRQHandler             
-000029bf  COMP_E1_IRQHandler             
-000029bf  CS_IRQHandler                  
-000029bf  DMA_ERR_IRQHandler             
-000029bf  DMA_INT0_IRQHandler            
-000029bf  DMA_INT1_IRQHandler            
-000029bf  DMA_INT2_IRQHandler            
-000029bf  DMA_INT3_IRQHandler            
-000029bf  DebugMon_Handler               
-000029bf  Default_Handler                
-000029bf  EUSCIA1_IRQHandler             
-000029bf  EUSCIA2_IRQHandler             
-000029bf  EUSCIA3_IRQHandler             
-000029bf  EUSCIB0_IRQHandler             
-000029bf  EUSCIB1_IRQHandler             
-000029bf  EUSCIB2_IRQHandler             
-000029bf  EUSCIB3_IRQHandler             
-000029bf  FLCTL_IRQHandler               
-000029bf  FPU_IRQHandler                 
-000029bf  HardFault_Handler              
-000029bf  MemManage_Handler              
-000029bf  NMI_Handler                    
-000029bf  PCM_IRQHandler                 
-000029bf  PORT2_IRQHandler               
-000029bf  PORT3_IRQHandler               
-000029bf  PORT4_IRQHandler               
-000029bf  PORT5_IRQHandler               
-000029bf  PORT6_IRQHandler               
-000029bf  PSS_IRQHandler                 
-000029bf  PendSV_Handler                 
-000029bf  RTC_C_IRQHandler               
-000029bf  SVC_Handler                    
-000029bf  SysTick_Handler                
-000029bf  T32_INT1_IRQHandler            
-000029bf  T32_INT2_IRQHandler            
-000029bf  T32_INTC_IRQHandler            
-000029bf  TA1_0_IRQHandler               
-000029bf  TA1_N_IRQHandler               
-000029bf  TA2_0_IRQHandler               
-000029bf  TA2_N_IRQHandler               
-000029bf  TA3_0_IRQHandler               
-000029bf  TA3_N_IRQHandler               
-000029bf  UsageFault_Handler             
-000029bf  WDT_A_IRQHandler               
-000029c1  __TI_zero_init                 
-000029cd  _system_pre_init               
-00002a28  __TI_Handler_Table_Base        
-00002a34  __TI_Handler_Table_Limit       
-00002a40  __TI_CINIT_Base                
-00002a50  __TI_CINIT_Limit               
-20000000  _sys_memory                    
-20000400  FLAG_Collect_Data              
-20000401  Calculate_Stats                
-20000404  myBufferPTR                    
-20000408  X_ADC                          
-2000040a  Y_ADC                          
-2000040c  Z_ADC                          
-2000040e  NADC_Temperature               
-20000410  __TI_cleanup_ptr               
-20000414  __TI_dtors_ptr                 
-20000418  __TI_enable_exit_profile_output
-20000428  _lock                          
-2000042c  _unlock                        
-20000430  errno                          
-20000434  main_func_sp                   
-20000438  SystemCoreClock                
-2000043c  myBuffer                       
-2000fe00  __stack                        
-20010000  __STACK_END                    
-4000480c  WDTCTL_SYM                     
-ffffffff  __TI_pprof_out_hndl            
-ffffffff  __TI_prof_data_size            
-ffffffff  __TI_prof_data_start           
-ffffffff  __binit__                      
-ffffffff  __c_args__                     
-ffffffff  binit                          
-UNDEFED   SHT$$INIT_ARRAY$$Base          
-UNDEFED   SHT$$INIT_ARRAY$$Limit         
+address   name                            
+-------   ----                            
+00000000  __TI_static_base__              
+00000000  interruptVectors                
+000000e5  pow                             
+000000e5  powl                            
+00000200  __STACK_SIZE                    
+00000400  __SYSMEM_SIZE                   
+00000a91  initialize_Circ_Buffer          
+00000ae5  add_To_Buffer                   
+00000b7b  remove_From_Buffer              
+00000c3f  is_Circ_Buf_Full                
+00000c5f  is_Circ_Buf_Empty               
+00000c77  currentSize                     
+00000c87  print                           
+00000de9  clear_Buffer                    
+00000ec1  minit                           
+00000f41  malloc                          
+00000fab  free                            
+0000106d  realloc                         
+00001175  memalign                        
+00001261  calloc                          
+000012bd  configure_clocks                
+000012f3  UART_config                     
+0000137b  UART_putchar                    
+00001397  UART_putchar_n                  
+000013d5  reverse                         
+00001427  intToStr                        
+00001491  itoa                            
+000014fb  ftoa                            
+000015b9  EUSCIA0_IRQHandler              
+000015b9  EUSCIA0_IRQHandler              
+0000166d  voltage_from_ADC                
+000016df  Temperature_from_voltage_Celsius
+00001755  Button_Interrupt_Config         
+00001805  buffer_Full_Config              
+00001825  buzzer_Config                   
+00001885  PORT1_IRQHandler                
+00001885  PORT1_IRQHandler                
+000018c7  PORT5_IRQHandler                
+000018c7  PORT5_IRQHandler                
+00001975  SystemCoreClockUpdate           
+00001be9  SystemInit                      
+00001ccd  ADC_CONFIG                      
+00001d1f  ADC_CONFIG_Accelerometer        
+00001dbb  ADC_CONFIG_Joystick             
+00001e57  ADC14_IRQHandler                
+00001e57  ADC14_IRQHandler                
+00001f09  __aeabi_dsub                    
+00001f13  __aeabi_dadd                    
+000020bf  __mpu_init                      
+000020c1  sqrt                            
+000020c1  sqrtl                           
+00002231  __aeabi_ddiv                    
+00002367  _system_post_cinit              
+00002369  main                            
+0000248d  __aeabi_dmul                    
+00002589  ldexp                           
+00002589  ldexpl                          
+00002589  scalbn                          
+00002589  scalbnl                         
+000026b1  timer_a0_config                 
+000026ef  TA0_0_IRQHandler                
+000026ef  TA0_0_IRQHandler                
+0000271f  TA0_N_IRQHandler                
+0000271f  TA0_N_IRQHandler                
+00002781  __aeabi_memcpy                  
+00002781  __aeabi_memcpy4                 
+00002781  __aeabi_memcpy8                 
+00002781  memcpy                          
+0000281d  __aeabi_cdcmpeq                 
+0000281d  __aeabi_cdcmple                 
+000028a3  __aeabi_cdrcmple                
+00002929  __aeabi_memclr                  
+00002929  __aeabi_memclr4                 
+00002929  __aeabi_memclr8                 
+0000292b  __aeabi_memset                  
+0000292b  __aeabi_memset4                 
+0000292b  __aeabi_memset8                 
+00002931  memset                          
+000029a5  __TI_auto_init                  
+00002a15  __aeabi_d2f                     
+00002a83  __TI_decompress_lzss            
+00002aed  _c_int00                        
+00002b41  C$$EXIT                         
+00002b45  abort                           
+00002b4d  exit                            
+00002b95  copy_in                         
+00002be1  __aeabi_f2d                     
+00002c19  __aeabi_i2d                     
+00002c47  __aeabi_ui2d                    
+00002c69  _args_main                      
+00002c81  _register_unlock                
+00002c87  _register_lock                  
+00002c8f  _nop                            
+00002c95  copysign                        
+00002c95  copysignl                       
+00002ca9  strlen                          
+00002cbd  __TI_decompress_none            
+00002ccb  Reset_Handler                   
+00002cd7  AES256_IRQHandler               
+00002cd7  BusFault_Handler                
+00002cd7  COMP_E0_IRQHandler              
+00002cd7  COMP_E1_IRQHandler              
+00002cd7  CS_IRQHandler                   
+00002cd7  DMA_ERR_IRQHandler              
+00002cd7  DMA_INT0_IRQHandler             
+00002cd7  DMA_INT1_IRQHandler             
+00002cd7  DMA_INT2_IRQHandler             
+00002cd7  DMA_INT3_IRQHandler             
+00002cd7  DebugMon_Handler                
+00002cd7  Default_Handler                 
+00002cd7  EUSCIA1_IRQHandler              
+00002cd7  EUSCIA2_IRQHandler              
+00002cd7  EUSCIA3_IRQHandler              
+00002cd7  EUSCIB0_IRQHandler              
+00002cd7  EUSCIB1_IRQHandler              
+00002cd7  EUSCIB2_IRQHandler              
+00002cd7  EUSCIB3_IRQHandler              
+00002cd7  FLCTL_IRQHandler                
+00002cd7  FPU_IRQHandler                  
+00002cd7  HardFault_Handler               
+00002cd7  MemManage_Handler               
+00002cd7  NMI_Handler                     
+00002cd7  PCM_IRQHandler                  
+00002cd7  PORT2_IRQHandler                
+00002cd7  PORT3_IRQHandler                
+00002cd7  PORT4_IRQHandler                
+00002cd7  PORT6_IRQHandler                
+00002cd7  PSS_IRQHandler                  
+00002cd7  PendSV_Handler                  
+00002cd7  RTC_C_IRQHandler                
+00002cd7  SVC_Handler                     
+00002cd7  SysTick_Handler                 
+00002cd7  T32_INT1_IRQHandler             
+00002cd7  T32_INT2_IRQHandler             
+00002cd7  T32_INTC_IRQHandler             
+00002cd7  TA1_0_IRQHandler                
+00002cd7  TA1_N_IRQHandler                
+00002cd7  TA2_0_IRQHandler                
+00002cd7  TA2_N_IRQHandler                
+00002cd7  TA3_0_IRQHandler                
+00002cd7  TA3_N_IRQHandler                
+00002cd7  UsageFault_Handler              
+00002cd7  WDT_A_IRQHandler                
+00002cd9  __TI_zero_init                  
+00002ce5  _system_pre_init                
+00002d40  __TI_Handler_Table_Base         
+00002d4c  __TI_Handler_Table_Limit        
+00002d58  __TI_CINIT_Base                 
+00002d68  __TI_CINIT_Limit                
+20000000  _sys_memory                     
+20000400  FLAG_Collect_Data               
+20000401  Calculate_Stats                 
+20000404  myBufferPTR                     
+20000408  X_ADC                           
+2000040a  Y_ADC                           
+2000040c  Z_ADC                           
+2000040e  NADC_Temperature                
+20000410  __TI_cleanup_ptr                
+20000414  __TI_dtors_ptr                  
+20000418  __TI_enable_exit_profile_output 
+20000428  _lock                           
+2000042c  _unlock                         
+20000430  errno                           
+20000434  main_func_sp                    
+20000438  SystemCoreClock                 
+2000043c  myBuffer                        
+2000fe00  __stack                         
+20010000  __STACK_END                     
+4000480c  WDTCTL_SYM                      
+ffffffff  __TI_pprof_out_hndl             
+ffffffff  __TI_prof_data_size             
+ffffffff  __TI_prof_data_start            
+ffffffff  __binit__                       
+ffffffff  __c_args__                      
+ffffffff  binit                           
+UNDEFED   SHT$$INIT_ARRAY$$Base           
+UNDEFED   SHT$$INIT_ARRAY$$Limit          
 
-[173 symbols]
+[177 symbols]
