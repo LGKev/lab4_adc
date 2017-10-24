@@ -2,8 +2,8 @@
 #include "adc_driver.h"
 #include "lab4.h"
 #include "timer.h"
-#include "Circular_Buffer_8_bit.h"
 #include "uart.h"
+#include"circ_buffer_basic.h"
 
 /*
  * main.c
@@ -25,7 +25,7 @@
    //:Joystick
 
    //Temperature
-   volatile uint16_t NADC_Temperature = 53;
+   volatile uint16_t NADC_Temperature = 0;
 /*==================================================*/
 
 void main(void)
@@ -44,10 +44,16 @@ void main(void)
 	UART_config();
 	configure_clocks();
 
+	/*visual output*/
 	P2SEL0 &= ~BIT2; //gpio
 	P2SEL1 &= ~BIT2; //gpio
 	P2->DIR = BIT2;
 	P2->OUT = BIT2;
+
+	P1SEL0 |= BIT0;
+	P1SEL1 |= BIT0;
+	P1->DIR = BIT1;
+	P1->OUT = BIT1;
 
 	__enable_interrupt();
 	while(1){
@@ -59,11 +65,11 @@ void main(void)
 	    if(FLAG_Collect_Data == 1){
 	        //add to buffer but for now just put into variable
 	        //:Todo add to buffer
-
-	        add_To_Buffer(myBufferPTR, NADC_Temperature);
-
-	        UART_putchar_n("test", 4);
-	        UART_putchar(13);
+	        __disable_interrupts();
+	        add_To_Buffer(&myBufferPTR, NADC_Temperature);
+	        __enable_interrupts();
+//	        UART_putchar_n("test", 4);
+//	        UART_putchar(13);
 	        FLAG_Collect_Data = 0;
 	    }
 	}

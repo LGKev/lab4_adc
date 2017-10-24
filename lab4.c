@@ -8,6 +8,10 @@
 #include "math.h"
 #include "lab4.h"
 #include "msp.h"
+#include "circ_buffer_basic.h"
+#include "uart.h"
+
+extern  CircBuf_t * myBufferPTR;
 
 float voltage_from_ADC(uint16_t nadc, float vref, uint8_t resolution_number_of_bits){
 
@@ -17,7 +21,7 @@ float voltage_from_ADC(uint16_t nadc, float vref, uint8_t resolution_number_of_b
 }
 
 void Button_Interrupt_Config(){
-    P1->SEL0 &= ~BIT1;    //
+        P1->SEL0 &= ~BIT1;    //
         P1->SEL1 &= ~BIT1;    //General I/O is enable for P1.1
         P1->OUT |= BIT1;      //enable the pull up register
         P1->DIR &= ~BIT1;     //p1.1 to be input
@@ -25,7 +29,11 @@ void Button_Interrupt_Config(){
         P1 ->IFG &= ~BIT1;
         P1->IE |= BIT1;       //Enable interrupt for P1.1
         P1->IES |= BIT1;      //Interrupt on high to low transition
+
+        NVIC_EnableIRQ(PORT1_IRQn);
 }
+
+
 
 
 void PORT1_IRQHandler(){
@@ -33,13 +41,10 @@ void PORT1_IRQHandler(){
     for(delay = 0; delay < 200; delay ++ ){}
     if (P1->IFG & BIT1  ){
         P1 -> IFG &=~ BIT1;
+        UART_putchar_n("print!", 6);
+        print(myBufferPTR);
         clear_Buffer(&myBufferPTR);
 
         //:TODO print buffer to uart.
-    }
-     if(P1->IFG & BIT4){
-        P1 ->IFG &=~BIT4;
-        print(myBufferPTR);
-        P2OUT ^= BIT2;
     }
  }

@@ -13,8 +13,8 @@ main.obj: C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/system_msp432p401r
 main.obj: ../adc_driver.h
 main.obj: ../lab4.h
 main.obj: ../timer.h
-main.obj: ../Circular_Buffer_8_bit.h
 main.obj: ../uart.h
+main.obj: ../circ_buffer_basic.h
 
 ../main.c: 
 C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/msp.h: 
@@ -29,5 +29,5 @@ C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/system_msp432p401r.h:
 ../adc_driver.h: 
 ../lab4.h: 
 ../timer.h: 
-../Circular_Buffer_8_bit.h: 
 ../uart.h: 
+../circ_buffer_basic.h: 

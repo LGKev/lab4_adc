@@ -36,5 +36,12 @@ void UART_putchar_n(uint8_t * data, uint32_t length);
 
 
 
+//Conversions
+void reverse(char str[], int len);
+int intToStr(int value, char str[], int length);
+
+char itoa(int value, char str[], int base);          //Integer to ASCII (should return ascii)
+
+char ftoa(float f, char str[], int point);         //Float to ASCII (should return ascii)
 
 #endif /* UART_H_ */

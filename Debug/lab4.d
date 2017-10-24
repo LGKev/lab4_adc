@@ -14,6 +14,8 @@ lab4.obj: C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/msp432p401r_classi
 lab4.obj: C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/CMSIS/core_cm4.h
 lab4.obj: C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/CMSIS/cmsis_compiler.h
 lab4.obj: C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/system_msp432p401r.h
+lab4.obj: ../circ_buffer_basic.h
+lab4.obj: ../uart.h
 
 ../lab4.c: 
 C:/Users/kwat1/Documents/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/math.h: 
@@ -29,3 +31,5 @@ C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/msp432p401r_classic.h:
 C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/CMSIS/core_cm4.h: 
 C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/CMSIS/cmsis_compiler.h: 
 C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/system_msp432p401r.h: 
+../circ_buffer_basic.h: 
+../uart.h: 

@@ -13,7 +13,7 @@
    extern uint16_t Y_ADC;
    extern uint16_t Z_ADC;
 
-   extern NADC_Temperature;
+   extern uint16_t NADC_Temperature;
 
 
 void ADC_CONFIG(){
@@ -188,7 +188,8 @@ void ADC14_IRQHandler(){
 
         uint32_t TS30 = TLV->ADC14_REF1P2V_TS30C;
         uint32_t TS85 = TLV->ADC14_REF1P2V_TS85C;
-        /*global*/ NADC_Temperature = ADC14->MEM[0];
+
+        NADC_Temperature = ADC14->MEM[0];  /*global*/
 
         //set a break point to determine if the interrupt was for mem[0] or channel [22]
         //float calculated_temp = (ADC14->MEM[0] - TLV->ADC14_REF1P2V_TS30C)*((85-30)/(TLV->ADC14_REF1P2V_TS85C- TLV->ADC14_REF1P2V_TS30C)) + 30;
@@ -202,6 +203,7 @@ void ADC14_IRQHandler(){
         //it looks like maybe the referecnec voltage represents the top value. not the bottom. from 0 to 1.2v is the reference range.
     }
 
+    //:TODO why is htis IFG14 and not mem[0] flag?
     if(ADC14->IFGR0 & ADC14_IFGR0_IFG14){
          X_ADC = ADC14->MEM[0];
          Y_ADC = ADC14->MEM[1];

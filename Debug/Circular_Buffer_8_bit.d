@@ -14,6 +14,7 @@ Circular_Buffer_8_bit.obj: C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/s
 Circular_Buffer_8_bit.obj: C:/Users/kwat1/Documents/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdlib.h
 Circular_Buffer_8_bit.obj: C:/Users/kwat1/Documents/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/linkage.h
 Circular_Buffer_8_bit.obj: ../uart.h
+Circular_Buffer_8_bit.obj: C:/Users/kwat1/Documents/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/string.h
 
 ../Circular_Buffer_8_bit.c: 
 C:/Users/kwat1/workspace_v7/lab4_adc-master/lab4_adc/Circular_Buffer_8_bit.h: 
@@ -29,3 +30,4 @@ C:/Users/kwat1/Documents/ccsv7/ccs_base/arm/include/system_msp432p401r.h:
 C:/Users/kwat1/Documents/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/stdlib.h: 
 C:/Users/kwat1/Documents/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/linkage.h: 
 ../uart.h: 
+C:/Users/kwat1/Documents/ccsv7/tools/compiler/ti-cgt-arm_16.9.4.LTS/include/string.h: 
